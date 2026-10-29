@@ -1,1 +1,279 @@
-file:///data/user/0/com.foxdebug.acodefree/files/public/VR project/VR-project/index.html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Улучшение виртуальной реальности | Проект</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Открыть оглавление" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+
+    <nav class="top-nav" id="topNav">
+        <ul>
+            <li><a href="#intro" class="nav-link active">Введение</a></li>
+            <li><a href="#problem" class="nav-link">Проблема</a></li>
+            <li><a href="#rendering" class="nav-link">1. Рендеринг</a></li>
+            <li><a href="#haptics" class="nav-link">2. Хаптика</a></li>
+            <li><a href="#comfort" class="nav-link">3. Комфорт</a></li>
+            <li><a href="#optics" class="nav-link">4. Оптика</a></li>
+            <li><a href="#tracking" class="nav-link">5. Трекинг</a></li>
+            <li><a href="#audio" class="nav-link">6. Звук</a></li>
+            <li><a href="#ai" class="nav-link">7. ИИ</a></li>
+            <li><a href="#social" class="nav-link">8. Соцсеть</a></li>
+            <li><a href="#health" class="nav-link">9. Здоровье</a></li>
+            <li><a href="#webxr" class="nav-link">10. WebXR</a></li>
+            <li><a href="#future" class="nav-link">11. Будущее</a></li>
+            <li><a href="#gallery" class="nav-link">Галерея</a></li>
+            <li><a href="#video" class="nav-link">Видео</a></li>
+            <li><a href="#sources" class="nav-link">Источники</a></li>
+        </ul>
+    </nav>
+
+    <div class="page-wrapper">
+
+        <header>
+            <div class="header-content">
+                <span class="badge">Проект • Технологии</span>
+                <h1>Улучшение виртуальной реальности</h1>
+                <p class="subtitle">Как технологии делают VR реалистичнее, комфортнее и доступнее</p>
+            </div>
+        </header>
+
+        <main>
+
+            <section id="intro" class="content-section">
+                <h2>Введение</h2>
+                <div class="content-inner">
+                    <p>Виртуальная реальность (VR) перестала быть фантастикой: гарнитуры есть у миллионов людей, а рынок растёт с каждым годом. Но до полного погружения ещё далеко. Этот проект — обзор ключевых направлений, которые делают VR <strong>лучше</strong>: от умного рендеринга до тактильной обратной связи, от новых дисплеев до искусственного интеллекта.</p>
+                    <p>Мы разберём, какие проблемы существуют сегодня, какие технологии уже применяются и что нас ждёт в ближайшие годы. Каждый раздел сопровождается ссылками на научные работы и технические обзоры.</p>
+                    <div class="highlight-box">
+                        <p>💡 <strong>Главная идея:</strong> улучшение VR — это не одна технология, а комплекс решений, работающих вместе.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="problem" class="content-section">
+                <h2>В чём проблема современной VR?</h2>
+                <div class="content-inner">
+                    <p>Анализ отзывов пользователей Apple Vision Pro и Meta Quest 3 показывает, что основные жалобы связаны с <strong>неудобной посадкой</strong>, <strong>коротким временем работы от батареи</strong>, <strong>задержкой отклика экрана</strong> и <strong>нехваткой контента</strong>.</p>
+                    <p>Исследователи также выделяют фундаментальные проблемы: зрительное утомление из-за конфликта аккомодации и конвергенции, а также укачивание при использовании режима «прозрачности» из-за задержек и ограниченного поля зрения.</p>
+                    <p>Кроме того, существует проблема <strong>массовости</strong>: VR-гарнитуры всё ещё дороги, а для многих задач они менее удобны, чем обычный монитор.</p>
+                    <div class="cards-grid">
+                        <div class="mini-card"><span class="icon">⚖️</span><h4>Вес</h4><p>Vision Pro весит 750–800 г — шея устаёт быстро.</p></div>
+                        <div class="mini-card"><span class="icon">🔋</span><h4>Батарея</h4><p>2–3 часа работы — мало для долгих сессий.</p></div>
+                        <div class="mini-card"><span class="icon">🌀</span><h4>Укачивание</h4><p>Задержки и конфликт фокуса вызывают дискомфорт.</p></div>
+                        <div class="mini-card"><span class="icon">🎮</span><h4>Контент</h4><p>Игр и приложений пока меньше, чем ожидают пользователи.</p></div>
+                        <div class="mini-card"><span class="icon">💰</span><h4>Цена</h4><p>Стоимость гарнитур остаётся высокой.</p></div>
+                        <div class="mini-card"><span class="icon">👓</span><h4>Зрение</h4><p>Длительное использование утомляет глаза.</p></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="rendering" class="content-section">
+                <h2>1. Умный рендеринг (фовеированный рендеринг)</h2>
+                <div class="content-inner">
+                    <p>Одна из главных проблем — нехватка вычислительной мощности для высокой детализации и частоты кадров. Решение — <strong>фовеированный рендеринг</strong>.</p>
+                    <p>Технология использует отслеживание движения глаз: та часть изображения, куда смотрит пользователь, рендерится в полном качестве, а периферия — с меньшей детализацией. Поскольку глаз всё равно не видит периферию так же чётко, это экономит огромное количество ресурсов.</p>
+                    <p>Valve добавила поддержку фовеированного рендеринга в PC-версию <em>Half-Life: Alyx</em>. Это позволяет повысить производительность на оборудовании с отслеживанием глаз (Meta Quest Pro, Apple Vision Pro, PlayStation VR2).</p>
+                    <p>Существует несколько уровней фовеированного рендеринга: <strong>фиксированный</strong>, <strong>с отслеживанием глаз</strong> и <strong>с предсказанием</strong>. Последний вариант даёт наибольшую экономию.</p>
+                    <div class="stat-row">
+                        <div class="stat"><span class="stat-number">50–80%</span><span class="stat-label">снижение нагрузки</span></div>
+                        <div class="stat"><span class="stat-number">2×</span><span class="stat-label">рост частоты кадров</span></div>
+                        <div class="stat"><span class="stat-number">0,1°</span><span class="stat-label">точность отслеживания глаз</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="haptics" class="content-section">
+                <h2>2. Тактильная обратная связь (хаптика)</h2>
+                <div class="content-inner">
+                    <p>Мы видим мир в VR, но не чувствуем его. Хаптические перчатки и костюмы призваны это исправить.</p>
+                    <p>Современные исследования предлагают адаптивные перчатки, которые меняют форму и сопротивление в зависимости от виртуального объекта. Одна из разработок использует 3D-печатные механизмы и сервоприводы: точность кинематики достигает <strong>97,4%</strong>, а время отклика — <strong>0,3 секунды</strong>.</p>
+                    <p>Другое исследование оптимизирует вибротактильные перчатки и носки для VR-симуляторов вождения. Генетический алгоритм позволил снизить время реакции с 530 мс до <strong>340 мс</strong>, а точность руления и торможения поднять до <strong>92% и 94%</strong>.</p>
+                    <p>Также существуют <strong>ультразвуковые хаптические устройства</strong>, которые создают ощущение прикосновения в воздухе без ношения перчаток.</p>
+                    <div class="highlight-box">
+                        <p>🖐️ <strong>Вывод:</strong> хаптика становится инструментом для тренировок, реабилитации и реалистичных симуляций.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="comfort" class="content-section">
+                <h2>3. Комфорт: вес, посадка и борьба с укачиванием</h2>
+                <div class="content-inner">
+                    <p>VR-гарнитуры всё ещё тяжеловаты. Индустрия движется к «раздельным» конструкциям: Meta VR Glasses (анонсированы на 2027 год) выносят процессор и батарею в отдельный блок, оставляя на голове около <strong>100 грамм</strong>.</p>
+                    <p>Для борьбы с укачиванием исследователи предлагают снижать задержку между движением головы и обновлением картинки с помощью <strong>предиктивных алгоритмов компенсации</strong>.</p>
+                    <p>Ещё один приём — <strong>виньетирование</strong>: во время движения края экрана затемняются, что снижает нагрузку на периферийное зрение и уменьшает укачивание.</p>
+                    <p>Посадка гарнитуры тоже важна: современные модели используют мягкие оголовья с регулировкой и распределением веса.</p>
+                </div>
+            </section>
+
+            <section id="optics" class="content-section">
+                <h2>4. Оптика и дисплеи</h2>
+                <div class="content-inner">
+                    <p>Качество изображения в VR зависит от дисплеев и линз. Основные улучшения последних лет:</p>
+                    <ul class="future-list">
+                        <li><strong>Micro-OLED дисплеи</strong> — высокое разрешение и яркость при малых размерах.</li>
+                        <li><strong>Pancake-линзы</strong> — тонкие линзы, которые складывают оптический путь, делая гарнитуру компактнее.</li>
+                        <li><strong>Увеличение поля зрения</strong> — современные гарнитуры достигают 100–120 градусов по горизонтали.</li>
+                        <li><strong>Увеличение частоты обновления</strong> — 90 Гц, 120 Гц и выше снижают задержку и укачивание.</li>
+                        <li><strong>HDR и высокая яркость</strong> — делают изображение реалистичнее.</li>
+                    </ul>
+                    <p>В перспективе — <strong>голографические дисплеи</strong>, которые формируют изображение на разной глубине.</p>
+                </div>
+            </section>
+
+            <section id="tracking" class="content-section">
+                <h2>5. Трекинг и управление</h2>
+                <div class="content-inner">
+                    <p>Чем точнее гарнитура отслеживает движение пользователя, тем сильнее погружение. Основные технологии:</p>
+                    <ul class="future-list">
+                        <li><strong>Отслеживание головы</strong> — базовый уровень, есть во всех гарнитурах.</li>
+                        <li><strong>Отслеживание рук</strong> — камеры распознают положение пальцев без контроллеров.</li>
+                        <li><strong>Отслеживание глаз</strong> — нужно для фовеированного рендеринга и социальных взаимодействий.</li>
+                        <li><strong>Отслеживание лица</strong> — камеры считывают мимику, передавая эмоции.</li>
+                        <li><strong>Отслеживание тела</strong> — датчики и камеры определяют положение корпуса и ног.</li>
+                    </ul>
+                    <p>Для управления используются контроллеры с тактильной отдачей, жесты рук и даже <strong>нейроинтерфейсы</strong>.</p>
+                </div>
+            </section>
+
+            <section id="audio" class="content-section">
+                <h2>6. Пространственный звук</h2>
+                <div class="content-inner">
+                    <p>Звук в VR не менее важен, чем изображение. <strong>Пространственный (3D) звук</strong> позволяет определить, откуда исходит звук, не видя источника.</p>
+                    <p>Современные гарнитуры используют <strong>передачу звука через кости</strong> или направленные динамики, которые не закрывают уши.</p>
+                    <p>Технология <strong>HRTF</strong> моделирует, как звук достигает ушей с учётом формы головы и ушных раковин.</p>
+                </div>
+            </section>
+
+            <section id="ai" class="content-section">
+                <h2>7. Искусственный интеллект в VR</h2>
+                <div class="content-inner">
+                    <p>ИИ проникает во все сферы VR. Основные направления:</p>
+                    <ul class="future-list">
+                        <li><strong>Апскейлинг изображения</strong> — ИИ повышает разрешение картинки в реальном времени.</li>
+                        <li><strong>Генерация контента</strong> — нейросети создают виртуальные миры по текстовому описанию.</li>
+                        <li><strong>Предсказание движения</strong> — ИИ предугадывает положение головы и рук, снижая задержку.</li>
+                        <li><strong>Аватары с мимикой</strong> — ИИ генерирует реалистичную мимику по голосу и жестам.</li>
+                    </ul>
+                    <p>Технология <strong>DLSS</strong> от NVIDIA использует ИИ для апскейлинга и уже применяется в VR-играх. А <strong>Meta Codec Avatars</strong> создают фотореалистичные аватары с точной мимикой.</p>
+                </div>
+            </section>
+                      <section id="social" class="content-section">
+                <h2>8. Социальная VR</h2>
+                <div class="content-inner">
+                    <p>VR — это не только игры, но и общение. Социальные платформы (VRChat, Horizon Worlds, Rec Room) позволяют встречаться с людьми из разных стран.</p>
+                    <ul class="future-list">
+                        <li><strong>Реалистичные аватары</strong> — с мимикой, движениями глаз и губ.</li>
+                        <li><strong>Пространственный голос</strong> — слышно, кто где находится.</li>
+                        <li><strong>Тактильные ощущения</strong> — рукопожатия и объятия с хаптическими перчатками.</li>
+                        <li><strong>Совместная работа</strong> — виртуальные доски, 3D-моделирование в реальном времени.</li>
+                    </ul>
+                    <p>Исследования показывают, что социальная VR может снижать чувство одиночества и улучшать эмоциональное состояние.</p>
+                </div>
+            </section>
+
+            <section id="health" class="content-section">
+                <h2>9. Здоровье и безопасность</h2>
+                <div class="content-inner">
+                    <p>Длительное использование VR влияет на здоровье. Основные риски и способы их снижения:</p>
+                    <ul class="future-list">
+                        <li><strong>Утомление глаз</strong> — правило 20-20-20: каждые 20 минут смотреть на объект в 6 метрах в течение 20 секунд.</li>
+                        <li><strong>Укачивание</strong> — снижается за счёт высокой частоты кадров и виньетирования.</li>
+                        <li><strong>Усталость шеи</strong> — лёгкие гарнитуры и правильная посадка.</li>
+                        <li><strong>Гигиена</strong> — сменные лицевые прокладки.</li>
+                        <li><strong>Безопасность в пространстве</strong> — границы и камеры, предупреждающие о препятствиях.</li>
+                    </ul>
+                    <p>VR также используется в медицине: для реабилитации после инсультов, лечения фобий, тренировки хирургов и обезболивания.</p>
+                </div>
+            </section>
+
+            <section id="webxr" class="content-section">
+                <h2>10. WebXR: VR в браузере</h2>
+                <div class="content-inner">
+                    <p><strong>WebXR</strong> — это технология, позволяющая запускать VR и AR прямо в браузере без установки приложений.</p>
+                    <ul class="future-list">
+                        <li><strong>Доступность</strong> — не нужно скачивать приложения.</li>
+                        <li><strong>Кроссплатформенность</strong> — работает на разных устройствах.</li>
+                        <li><strong>Быстрое обновление</strong> — контент обновляется на сервере.</li>
+                        <li><strong>Лёгкость разработки</strong> — можно использовать HTML, CSS и JavaScript.</li>
+                    </ul>
+                    <p>Для разработки используется <strong>WebXR Device API</strong>.</p>
+                </div>
+            </section>
+
+            <section id="future" class="content-section">
+                <h2>11. Будущее VR: к чему всё идёт</h2>
+                <div class="content-inner">
+                    <p>Если собрать все направления вместе, вырисовывается картина VR следующего поколения:</p>
+                    <ul class="future-list">
+                        <li><strong>Лёгкие очки</strong> вместо тяжёлых шлемов.</li>
+                        <li><strong>Отслеживание глаз + фовеированный рендеринг</strong> как стандарт.</li>
+                        <li><strong>Тактильные перчатки</strong> с точностью выше 95%.</li>
+                        <li><strong>Предсказание движения</strong> для устранения укачивания.</li>
+                        <li><strong>WebXR</strong> — VR прямо в браузере.</li>
+                        <li><strong>ИИ-генерация контента</strong> — миры создаются по запросу.</li>
+                    </ul>
+                    <p>По прогнозам аналитиков, к 2030 году рынок VR и AR может достичь сотен миллиардов долларов.</p>
+                </div>
+            </section>
+
+            <<section id="gallery" class="content-section">
+    <h2>Галерея: VR в жизни</h2>
+    <div class="content-inner">
+        <div class="gallery-grid">
+            <figure class="gallery-item">
+                <img src="images/vr1.jpg" alt="VR-гарнитура" loading="lazy">
+                <figcaption>Современная VR-гарнитура</figcaption>
+            </figure>
+            <figure class="gallery-item">
+                <img src="images/vr2.jpg" alt="Очки виртуальной реальности" loading="lazy">
+                <figcaption>Очки виртуальной реальности</figcaption>
+            </figure>
+            <figure class="gallery-item">
+                <img src="images/vr3.jpg" alt="Использование VR" loading="lazy">
+                <figcaption>Использование VR на практике</figcaption>
+            </figure>
+            <figure class="gallery-item">
+                <img src="images/vr4.jpg" alt="VR-контроллеры" loading="lazy">
+                <figcaption>VR-контроллеры</figcaption>
+            </figure>
+        </div>
+    </div>
+            </section>
+          <<section id="video" class="content-section">
+    <h2>Видео по теме</h2>
+    <div class="content-inner">
+        <p>Короткий VR-фильм о природе России от Русского географического общества (8 минут). Лучше всего смотреть в очках виртуальной реальности, но и на экране эффект впечатляет:</p>
+        <div class="video-wrapper">
+            <iframe 
+                src="https://rutube.ru/play/embed/6857212ed9427b99d1bb31ef71ffbb5f" 
+                title="Россия. Виртуальное путешествие (VR)"
+                allow="fullscreen; autoplay; encrypted-media"
+                allowfullscreen
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+          </section>
+
+            
+            </section>
+
+            <section id="sources" class="content-section">
+                <h2>Источники и полезные ссылки</h2>
+                <div class="content-inner">
+                    <p class="sources-intro">Все ссылки кликабельны. Если PDF не открывается в браузере — скачай его.</p>
+                    <ul class="source-list">
+                        
+                        <li>
+    <a href="http://sciact.imbp.ru/public/article/376" target="_blank" rel="noopener">Афферентный синтез и формирование психологического образа при восприятии виртуальной реальности (ИМБП РАН)</a>
+    <span class="source-desc">Научная публикация о том, как VR влияет на восприятие и психологическое состояние человека. Открывается как веб-страница.</span>
+                        </li>
+                        
+                        <li><a href="https://tech.yahoo.com/ar-vr/articles/half-life-alyx-gets-lil-111322439.html" target="_blank" rel="noopener">Half-Life: Alyx и фовеированный рендеринг (Yahoo Tech)</a><span class="source-desc">Новость о добавлении поддержки.</span></li>
+                        <li><a href="https
