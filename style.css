@@ -1,0 +1,375 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --primary: #5b21b6;
+    --primary-light: #7c3aed;
+    --accent: #0891b2;
+    --bg: #faf5ff;
+    --card-bg: #ffffff;
+    --text-body: #312e81;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 20px; }
+
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.75;
+    color: var(--text-body);
+    background: var(--bg);
+    overflow-x: hidden;
+}
+
+/* ===== Кнопка-гамбургер ===== */
+.menu-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #7c3aed;
+    border: none;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.menu-toggle:active { transform: scale(0.9); }
+
+.menu-toggle span {
+    width: 22px;
+    height: 2.5px;
+    background: #ffffff;
+    border-radius: 3px;
+    transition: 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+/* ===== Красивое выезжающее оглавление ===== */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 290px;
+    height: 100vh;
+    background: linear-gradient(160deg, #4c1d95 0%, #312e81 100%);
+    z-index: 1050;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    padding: 85px 15px 30px;
+}
+
+.top-nav.open { transform: translateX(0); }
+
+/* Заголовок внутри меню */
+.top-nav::before {
+    content: "НАВИГАЦИЯ";
+    position: absolute;
+    top: 90px;
+    left: 25px;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: #a78bfa;
+    font-weight: 700;
+}
+
+.top-nav ul { list-style: none; padding: 0; margin: 15px 0 0 0; }
+
+.top-nav a {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px; /* Чуть увеличили отступ для воздуха */
+    margin-bottom: 0; 
+    color: #e9d5ff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 8px; /* Закругления только при наведении будут заметны */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Тонкая линия разделения */
+    transition: all 0.2s ease;
+}
+
+/* Убираем линию у самого последнего пункта */
+.top-nav li:last-child a {
+    border-bottom: none;
+}
+
+.top-nav a:hover, .top-nav a:active {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding-left: 22px; /* Небольшой сдвиг вправо */
+}
+
+.top-nav a.active {
+    background: linear-gradient(90deg, rgba(124, 58, 237, 0.5) 0%, rgba(124, 58, 237, 0) 100%);
+    color: #ffffff;
+    font-weight: 600;
+    border-left: 4px solid #fbbf24;
+    border-radius: 4px 8px 8px 4px;
+    padding-left: 20px;
+    border-bottom-color: transparent; /* Скрываем линию у активного пункта, чтобы не мешала */
+}
+
+/* Затемнение фона */
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    z-index: 1040;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+
+.nav-overlay.show { opacity: 1; visibility: visible; }
+
+/* ===== Шапка сайта ===== */
+header {
+    background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 40%, #06b6d4 100%);
+    color: white;
+    padding: 70px 25px 55px;
+    text-align: center;
+}
+
+.header-content { max-width: 800px; margin: 0 auto; }
+
+.badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.22);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.subtitle { font-size: 1.1rem; opacity: 0.95; max-width: 600px; margin: 0 auto; }
+
+/* ===== Контент ===== */
+main { max-width: 900px; margin: 0 auto; padding: 40px 20px 60px; }
+
+.content-section {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 35px 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 25px rgba(91, 33, 182, 0.08);
+    border: 1px solid rgba(91, 33, 182, 0.08);
+    scroll-margin-top: 20px;
+}
+
+.content-inner { padding: 0 15px; }
+
+h2 {
+    font-size: 1.6rem;
+    color: var(--primary);
+    margin-bottom: 22px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--accent);
+    display: inline-block;
+}
+
+p { margin-bottom: 15px; color: var(--text-body); }
+strong { color: var(--primary); }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.highlight-box {
+    background: linear-gradient(135deg, rgba(91, 33, 182, 0.08), rgba(8, 145, 178, 0.08));
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin: 20px 0;
+}
+
+.highlight-box p { margin: 0; }
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.mini-card {
+    background: linear-gradient(135deg, #f3e8ff, #e0f2fe);
+    border: 1px solid rgba(91, 33, 182, 0.15);
+    border-radius: 14px;
+    padding: 20px 18px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.mini-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(91, 33, 182, 0.15); }
+.mini-card .icon { font-size: 1.8rem; display: block; margin-bottom: 8px; }
+.mini-card h4 { color: var(--primary); font-size: 1rem; margin-bottom: 6px; }
+.mini-card p { font-size: 0.85rem; color: var(--text-body); margin: 0; }
+
+.stat-row { display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; }
+
+.stat {
+    flex: 1;
+    min-width: 140px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    border-radius: 14px;
+    padding: 22px 18px;
+    text-align: center;
+}
+
+.stat-number { display: block; font-size: 1.8rem; font-weight: 700; margin-bottom: 4px; }
+.stat-label { font-size: 0.85rem; opacity: 0.95; }
+
+.future-list { list-style: none; padding: 0; }
+
+.future-list li {
+    padding: 14px 0 14px 38px;
+    position: relative;
+    border-bottom: 1px solid #f0e6ff;
+}
+
+.future-list li:last-child { border-bottom: none; }
+
+.future-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 26px;
+    height: 26px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+/* ===== Источники ===== */
+.sources-intro { color: var(--text-body); margin-bottom: 15px; }
+.source-list { list-style: none; padding: 0; }
+.source-list li { padding: 16px 0; border-bottom: 1px solid #f0e6ff; }
+.source-list li:last-child { border-bottom: none; }
+.source-list a { font-weight: 600; display: block; margin-bottom: 4px; font-size: 1rem; }
+.source-list a:hover { color: var(--accent); }
+.source-desc { display: block; font-size: 0.88rem; color: var(--text-body); }
+
+/* ===== Галерея ===== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    border-radius: 14px;
+    overflow: hidden;
+    background: #f3e8ff;
+    box-shadow: 0 4px 15px rgba(91, 33, 182, 0.1);
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: pointer;
+}
+
+.gallery-item:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(91, 33, 182, 0.2); }
+.gallery-item img { width: 100%; height: 160px; object-fit: cover; display: block; }
+.gallery-item figcaption { padding: 10px 14px; font-size: 0.85rem; color: var(--text-body); text-align: center; }
+
+/* ===== Видео ===== */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(91, 33, 182, 0.15);
+    margin-top: 15px;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-note { margin-top: 12px; font-size: 0.9rem; }
+
+/* ===== Модальное окно картинок ===== */
+.image-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 27, 75, 0.9);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    cursor: zoom-out;
+}
+
+.image-modal img {
+    max-width: 95%;
+    max-height: 90vh;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+/* ===== Подвал ===== */
+footer {
+    background: linear-gradient(135deg, #5b21b6, #7c3aed);
+    color: #f5f3ff;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9rem;
+}
+
+/* ===== Адаптив для телефона ===== */
+@media (max-width: 600px) {
+    header { padding: 50px 20px 40px; }
+    header h1 { font-size: 1.7rem; }
+    .subtitle { font-size: 1rem; }
+    .content-section { padding: 25px 18px; border-radius: 16px; }
+    .content-inner { padding: 0 8px; }
+    h2 { font-size: 1.3rem; }
+    .stat-number { font-size: 1.4rem; }
+    .cards-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ===== Адаптив для компьютера ===== */
+@media (min-width: 769px) {
+    .mini-card { max-width: 260px; margin: 0 auto; width: 100%; }
+    .stat { max-width: 280px; margin: 0 auto; }
+    .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 260px)); justify-content: center; }
+    main { max-width: 960px; }
+}
+
+@media (min-width: 1400px) {
+    main { max-width: 1040px; }
+    header h1 { font-size: 2.6rem; }
+    .subtitle { font-size: 1.2rem; }
+  }
